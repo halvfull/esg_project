@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Insights Dashboard</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+
+<h2>Green Customer Distribution</h2>
+<div id="greenDistribution" style="width:100%;max-width:900px;margin:auto;"></div>
+
+<h2>Total Exposure by Country</h2>
+<div id="exposureByCountry" style="width:100%;max-width:900px;margin:auto;"></div>
+
+<h2>Green Customers by NACE Code</h2>
+<div id="greenByNACE" style="width:100%;max-width:900px;margin:auto;"></div>
+
+<script>
+// Plotting Green Customer Distribution
+fetch('http://127.0.0.1:8000/customer-green-distribution')
+    .then(response => response.json())
+    .then(data => {
+        Plotly.newPlot('greenDistribution', JSON.parse(data).data, JSON.parse(data).layout);
+    })
+    .catch(error => console.error('Error loading the green distribution plot:', error));
+
+// Plotting Total Exposure by Country
+fetch('http://127.0.0.1:8000/total-exposure-by-country')
+    .then(response => response.json())
+    .then(data => {
+        Plotly.newPlot('exposureByCountry', JSON.parse(data).data, JSON.parse(data).layout);
+    })
+    .catch(error => console.error('Error loading the exposure by country plot:', error));
+
+// Plotting Green Customers by NACE Code
+fetch('http://127.0.0.1:8000/green-customers-by-nace')
+    .then(response => response.json())
+    .then(data => {
+        Plotly.newPlot('greenByNACE', JSON.parse(data).data, JSON.parse(data).layout);
+    })
+    .catch(error => console.error('Error loading the green customers by NACE plot:', error));
+</script>
+
+</body>
+</html>
