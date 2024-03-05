@@ -20,6 +20,7 @@ activities = taxonomy_data['activities']
 taxonomy = pd.json_normalize(activities)
 
 # Read in the customer exposure data from a CSV file
+#Update path to reflect your own CSV.
 customer_exposure = pd.read_csv('/Users/jakobsterri/esg_project/esg_project/customer_exposure.csv', delimiter=';')
 
 # Normalize the taxonomy NACE codes by removing all chars and periods, considering multiple codes
