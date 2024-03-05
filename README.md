@@ -35,3 +35,4 @@ This repository contains a prototype for calculating and reporting the Green Ass
 ## Screenshots
 
 ![Alt text](screenshots/ratio.png?raw=true "Green ratio")
+![Alt text](screenshots/exposure.pngraw=true "Exposure plot")
